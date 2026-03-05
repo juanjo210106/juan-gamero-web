@@ -5,23 +5,23 @@
   --font-serif: 'Karma', serif;
 }
 
-/* --- CLASES DE ANIMACIÓN AL HACER SCROLL --- */
+/* --- ANIMACIONES SCROLL CONTINUO (ORGÁNICAS Y SUAVES) --- */
 
-/* Estado inicial: Elemento transparente y desplazado hacia abajo */
-.reveal {
+/* Unificamos el comportamiento para que sea ultra-suave y no fuerce al navegador */
+.reveal-text, .reveal-card {
   opacity: 0;
-  transform: translateY(40px);
-  /* Esta curva (cubic-bezier) le da ese efecto de "frenado suave" premium */
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
+  /* Reducimos el salto a solo 30px (antes era 40px o 60px) */
+  transform: translateY(30px); 
+  /* Usamos una curva easeOutQuint súper elegante y un poco más lenta (1.2s) */
+  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Estado final: Elemento visible y en su posición original */
-.reveal.active {
+.reveal-text.active, .reveal-card.active {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Retrasos para crear el efecto cascada (uno detrás de otro) */
+/* Retrasos para crear el efecto cascada */
 .delay-100 { transition-delay: 100ms; }
 .delay-200 { transition-delay: 200ms; }
 .delay-300 { transition-delay: 300ms; }
