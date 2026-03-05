@@ -1,0 +1,152 @@
+---
+// src/components/Projects.astro
+---
+<section id="proyectos" class="w-full bg-[#050505] py-32 md:py-48 overflow-hidden flex flex-col selection:bg-white selection:text-black">
+  
+  <div class="max-w-[100rem] mx-auto px-6 md:px-12 lg:px-20 w-full mb-20 md:mb-32">
+    <div class="w-full border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-start gap-12 reveal-text">
+      
+      <h2 class="font-sans text-[15vw] md:text-[9rem] lg:text-[11rem] font-black text-white leading-[0.75] tracking-tighter uppercase">
+        Proyectos.
+      </h2>
+
+      <div class="md:w-[35%] flex flex-col gap-6 pt-4">
+        <p class="font-sans text-xs font-bold tracking-widest text-slate-400 uppercase">
+          Selección 2020 — 2026
+        </p>
+        <p class="font-inter text-lg md:text-xl text-slate-300 leading-relaxed font-light">
+          No decoramos, construimos. Una muestra de nuestras estructuras industriales y trabajos de precisión donde el acero es el protagonista absoluto.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="slider-container w-full pl-6 md:pl-12 lg:pl-20 flex gap-8 md:gap-16 overflow-x-auto hide-scrollbar cursor-grab active:cursor-grabbing pb-12 reveal-card delay-200">
+    
+    <div class="slider-item w-[85vw] md:w-[40vw] lg:w-[30vw] flex-shrink-0 group">
+      <div class="w-full aspect-[3/4] overflow-hidden mb-6 bg-[#111]">
+        <img 
+          src="https://images.unsplash.com/photo-1541888081635-c63e2642ed50?q=80&w=1200&auto=format&fit=crop" 
+          alt="Nave Industrial" 
+          class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105 grayscale-[30%] group-hover:grayscale-0" 
+        />
+      </div>
+      <div class="w-full border-t border-white/15 pt-5 flex justify-between items-start">
+        <span class="font-sans text-sm text-slate-500 font-medium">01</span>
+        <h3 class="font-sans text-xl text-white font-medium tracking-tight uppercase text-right">Estructuras<br/>Industriales</h3>
+      </div>
+    </div>
+
+    <div class="slider-item w-[85vw] md:w-[40vw] lg:w-[30vw] flex-shrink-0 group">
+      <div class="w-full aspect-[3/4] overflow-hidden mb-6 bg-[#111]">
+        <img 
+          src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop" 
+          alt="Trabajos a medida" 
+          class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105 grayscale-[30%] group-hover:grayscale-0" 
+        />
+      </div>
+      <div class="w-full border-t border-white/15 pt-5 flex justify-between items-start">
+        <span class="font-sans text-sm text-slate-500 font-medium">02</span>
+        <h3 class="font-sans text-xl text-white font-medium tracking-tight uppercase text-right">Soldadura<br/>de Precisión</h3>
+      </div>
+    </div>
+
+    <div class="slider-item w-[85vw] md:w-[40vw] lg:w-[30vw] flex-shrink-0 group">
+      <div class="w-full aspect-[3/4] overflow-hidden mb-6 bg-[#111]">
+        <img 
+          src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1200&auto=format&fit=crop" 
+          alt="Mobiliario" 
+          class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105 grayscale-[30%] group-hover:grayscale-0" 
+        />
+      </div>
+      <div class="w-full border-t border-white/15 pt-5 flex justify-between items-start">
+        <span class="font-sans text-sm text-slate-500 font-medium">03</span>
+        <h3 class="font-sans text-xl text-white font-medium tracking-tight uppercase text-right">Mobiliario<br/>en Acero</h3>
+      </div>
+    </div>
+
+    <div class="slider-item w-[85vw] md:w-[40vw] lg:w-[30vw] flex-shrink-0 group pr-6 md:pr-12 lg:pr-20">
+      <div class="w-full aspect-[3/4] overflow-hidden mb-6 bg-[#111]">
+        <img 
+          src="https://images.unsplash.com/photo-1565642442442-9f935f111b23?q=80&w=1200&auto=format&fit=crop" 
+          alt="Residencial" 
+          class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105 grayscale-[30%] group-hover:grayscale-0" 
+        />
+      </div>
+      <div class="w-full border-t border-white/15 pt-5 flex justify-between items-start">
+        <span class="font-sans text-sm text-slate-500 font-medium">04</span>
+        <h3 class="font-sans text-xl text-white font-medium tracking-tight uppercase text-right">Cerramientos<br/>Residenciales</h3>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Ocultar barra de scroll nativa para un look limpio */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<script>
+  (() => {
+    const slider = document.querySelector('.slider-container') as HTMLElement;
+    if (!slider) return;
+
+    let isDown = false;
+    let startX: number;
+    let scrollLeft: number;
+    let autoPlayInterval: number;
+
+    // --- LÓGICA DE DRAG (ARRASTRE) ---
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+      pauseAutoPlay();
+    });
+
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      startAutoPlay();
+    });
+
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      startAutoPlay();
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2; 
+      slider.scrollLeft = scrollLeft - walk;
+    });
+
+    slider.addEventListener('touchstart', pauseAutoPlay, { passive: true });
+    slider.addEventListener('touchend', startAutoPlay);
+
+    // --- LÓGICA DE AUTOPLAY ---
+    const startAutoPlay = () => {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = window.setInterval(() => {
+        slider.scrollBy({ left: 1.5, behavior: 'auto' }); // Velocidad suave
+        
+        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 1) {
+          slider.scrollTo({ left: 0, behavior: 'smooth' });
+        }
+      }, 30);
+    };
+
+    const pauseAutoPlay = () => clearInterval(autoPlayInterval);
+
+    startAutoPlay();
+  })();
+</script>

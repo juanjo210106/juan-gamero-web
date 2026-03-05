@@ -19,7 +19,7 @@ import fotoTaller from '../assets/hero_metalica.png';
       </p>
 
       <!-- METAL QUE PERDURA. -->
-      <h2 class="font-karma font-black text-slate-900 uppercase leading-none tracking-tighter mb-10 about-title" style="font-size: 70px;">
+      <h2 class="font-black text-slate-900 uppercase leading-none tracking-tighter mb-10 about-title" style="font-size: 60px; font-family: inter display;">
         METAL<br/>QUE PERDURA.
       </h2>
 
@@ -67,13 +67,15 @@ import fotoTaller from '../assets/hero_metalica.png';
         </p>
 
         <!-- Botón negro pill -->
-        <a
-          href="#presupuesto"
-          class="font-sans inline-flex items-center gap-3 bg-slate-900 text-white text-xs font-bold tracking-widest uppercase rounded-full px-8 py-4 hover:bg-slate-700 transition-colors duration-300"
-        >
-          <span class="inline-block w-2 h-2 rounded-full bg-white/50 flex-shrink-0"></span>
-          Solicitar presupuesto
-        </a>
+        <a href="#" class="btn">
+    <span class="btn-dot"></span>
+    <span class="btn-text-wrap">
+      <span class="btn-text-track">
+        <span class="btn-text">Solicitar presupuesto</span>
+        <span class="btn-text">Solicitar presupuesto</span>
+      </span>
+    </span>
+  </a>
       </div>
 
     </div>
@@ -146,6 +148,80 @@ import fotoTaller from '../assets/hero_metalica.png';
   .about-body.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* ─── Botón base ─── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #0f172a;
+    color: #fff;
+    border-radius: 999px;
+    padding: 16px 32px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+  }
+
+  /* ─── Punto (Empieza hueco, se rellena al hover) ─── */
+  .btn-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    /* Empieza siendo solo un borde */
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    background-color: transparent;
+    flex-shrink: 0;
+    /* Suavizamos el relleno del color */
+    transition: background-color 0.4s cubic-bezier(0.76, 0, 0.24, 1),
+                border-color 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  .btn:hover .btn-dot {
+    /* Al pasar el ratón se vuelve un punto sólido */
+    background-color: #ffffff;
+    border-color: #ffffff;
+  }
+
+  /* ─── Contenedor del texto: ventana exacta ─── */
+  .btn-text-wrap {
+    overflow: hidden;
+    /* Ajustamos a 1.2em para que no recorte la parte baja de la "p" */
+    height: 1.2em; 
+    display: flex;
+    align-items: flex-start;
+  }
+
+  /* ─── Track que contiene el texto dos veces apilado ─── */
+  .btn-text-track {
+    display: flex;
+    flex-direction: column;
+    transform: translateY(0%);
+    /* Transición elástica y premium */
+    transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  /* Al hacer hover: sube exactamente el 50% de sí mismo (1 línea completa) */
+  .btn:hover .btn-text-track {
+    transform: translateY(-50%);
+  }
+
+  /* ─── Cada copia del texto ─── */
+  .btn-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    /* Obligamos a que cada copia mida exactamente lo que mide la ventana */
+    line-height: 1.6em;
+    height: 1.2em;
+    color: #fff;
+    display: flex;
+    align-items: center;
   }
 </style>
 
