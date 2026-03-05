@@ -3,12 +3,14 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
-import Services from '../components/Services.astro'; // <-- Importamos la nueva sección
+import Services from '../components/Services.astro';
+import About from '../components/About.astro'; // <-- 1. Importamos la nueva sección
 ---
 
 <Layout title="Carpintería Metálica Juan Gamero | Casariche">
   <Header />
   <main>
     <Hero />
-    <Services /> </main>
+    <Services />
+    <About /> </main>
 </Layout>
