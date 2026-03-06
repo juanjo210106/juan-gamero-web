@@ -1,152 +1,271 @@
 ---
 // src/components/Projects.astro
 ---
-<section id="proyectos" class="w-full bg-[#050505] py-32 md:py-48 overflow-hidden flex flex-col selection:bg-white selection:text-black">
-  
-  <div class="max-w-[100rem] mx-auto px-6 md:px-12 lg:px-20 w-full mb-20 md:mb-32">
-    <div class="w-full border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-start gap-12 reveal-text">
-      
-      <h2 class="font-sans text-[15vw] md:text-[9rem] lg:text-[11rem] font-black text-white leading-[0.75] tracking-tighter uppercase">
-        Proyectos.
+
+<section id="proyectos" class="projects-section w-full bg-[#031D44] py-24 overflow-hidden">
+
+  <!-- Header -->
+  <div class="px-8 md:px-16 max-w-7xl mx-auto mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+
+    <div>
+      <h2 class="font-bold text-white leading-none tracking-tight projects-heading" style="font-family: inter display;">
+        Nuestro<br/>trabajo habla.
       </h2>
-
-      <div class="md:w-[35%] flex flex-col gap-6 pt-4">
-        <p class="font-sans text-xs font-bold tracking-widest text-slate-400 uppercase">
-          Selección 2020 — 2026
-        </p>
-        <p class="font-inter text-lg md:text-xl text-slate-300 leading-relaxed font-light">
-          No decoramos, construimos. Una muestra de nuestras estructuras industriales y trabajos de precisión donde el acero es el protagonista absoluto.
-        </p>
-      </div>
-
     </div>
+
+    <p class="font-inter text-white/50 text-base md:text-lg leading-relaxed max-w-sm md:text-left projects-desc">
+      Estructuras industriales, cancelas residenciales y piezas únicas forjadas en nuestro taller de Casariche.
+    </p>
+
   </div>
 
-  <div class="slider-container w-full pl-6 md:pl-12 lg:pl-20 flex gap-8 md:gap-16 overflow-x-auto hide-scrollbar cursor-grab active:cursor-grabbing pb-12 reveal-card delay-200">
-    
-    <div class="slider-item w-[85vw] md:w-[40vw] lg:w-[30vw] flex-shrink-0 group">
-      <div class="w-full aspect-[3/4] overflow-hidden mb-6 bg-[#111]">
-        <img 
-          src="https://images.unsplash.com/photo-1541888081635-c63e2642ed50?q=80&w=1200&auto=format&fit=crop" 
-          alt="Nave Industrial" 
-          class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105 grayscale-[30%] group-hover:grayscale-0" 
-        />
-      </div>
-      <div class="w-full border-t border-white/15 pt-5 flex justify-between items-start">
-        <span class="font-sans text-sm text-slate-500 font-medium">01</span>
-        <h3 class="font-sans text-xl text-white font-medium tracking-tight uppercase text-right">Estructuras<br/>Industriales</h3>
+  <!-- ══════════════════════════════════════
+       CARRUSEL INFINITO — dos pistas
+  ═══════════════════════════════════════ -->
+  <div class="projects-carousel-outer">
+
+    <!-- Pista 1: izquierda → derecha (lenta) -->
+    <div class="carousel-track track-fwd mb-4">
+      <div class="carousel-inner">
+        <!-- SET A -->
+        <div class="carousel-card" style="--hue:0">
+          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80&auto=format&fit=crop" alt="Nave industrial" loading="lazy"/>
+          <div class="card-label">Nave industrial · Osuna</div>
+        </div>
+        <div class="carousel-card" style="--hue:210">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop" alt="Puerta corredera" loading="lazy"/>
+          <div class="card-label">Puerta corredera · Sevilla</div>
+        </div>
+        <div class="carousel-card" style="--hue:30">
+          <img src="https://images.unsplash.com/photo-1530268729831-4b0b9e170218?w=600&q=80&auto=format&fit=crop" alt="Escalera metálica" loading="lazy"/>
+          <div class="card-label">Escalera interior · Casariche</div>
+        </div>
+        <div class="carousel-card" style="--hue:160">
+          <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=600&q=80&auto=format&fit=crop" alt="Estructura cubierta" loading="lazy"/>
+          <div class="card-label">Cubierta metálica · Écija</div>
+        </div>
+        <div class="carousel-card" style="--hue:270">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80&auto=format&fit=crop" alt="Barandilla forja" loading="lazy"/>
+          <div class="card-label">Barandilla forja · Estepa</div>
+        </div>
+        <div class="carousel-card" style="--hue:45">
+          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop" alt="Vallado perimetral" loading="lazy"/>
+          <div class="card-label">Vallado perimetral · Puente Genil</div>
+        </div>
+        <!-- SET B (clon para loop infinito) -->
+        <div class="carousel-card" style="--hue:0">
+          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80&auto=format&fit=crop" alt="Nave industrial" loading="lazy"/>
+          <div class="card-label">Nave industrial · Osuna</div>
+        </div>
+        <div class="carousel-card" style="--hue:210">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop" alt="Puerta corredera" loading="lazy"/>
+          <div class="card-label">Puerta corredera · Sevilla</div>
+        </div>
+        <div class="carousel-card" style="--hue:30">
+          <img src="https://images.unsplash.com/photo-1530268729831-4b0b9e170218?w=600&q=80&auto=format&fit=crop" alt="Escalera metálica" loading="lazy"/>
+          <div class="card-label">Escalera interior · Casariche</div>
+        </div>
+        <div class="carousel-card" style="--hue:160">
+          <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=600&q=80&auto=format&fit=crop" alt="Estructura cubierta" loading="lazy"/>
+          <div class="card-label">Cubierta metálica · Écija</div>
+        </div>
+        <div class="carousel-card" style="--hue:270">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&q=80&auto=format&fit=crop" alt="Barandilla forja" loading="lazy"/>
+          <div class="card-label">Barandilla forja · Estepa</div>
+        </div>
+        <div class="carousel-card" style="--hue:45">
+          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80&auto=format&fit=crop" alt="Vallado perimetral" loading="lazy"/>
+          <div class="card-label">Vallado perimetral · Puente Genil</div>
+        </div>
       </div>
     </div>
 
-    <div class="slider-item w-[85vw] md:w-[40vw] lg:w-[30vw] flex-shrink-0 group">
-      <div class="w-full aspect-[3/4] overflow-hidden mb-6 bg-[#111]">
-        <img 
-          src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop" 
-          alt="Trabajos a medida" 
-          class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105 grayscale-[30%] group-hover:grayscale-0" 
-        />
-      </div>
-      <div class="w-full border-t border-white/15 pt-5 flex justify-between items-start">
-        <span class="font-sans text-sm text-slate-500 font-medium">02</span>
-        <h3 class="font-sans text-xl text-white font-medium tracking-tight uppercase text-right">Soldadura<br/>de Precisión</h3>
-      </div>
-    </div>
-
-    <div class="slider-item w-[85vw] md:w-[40vw] lg:w-[30vw] flex-shrink-0 group">
-      <div class="w-full aspect-[3/4] overflow-hidden mb-6 bg-[#111]">
-        <img 
-          src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1200&auto=format&fit=crop" 
-          alt="Mobiliario" 
-          class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105 grayscale-[30%] group-hover:grayscale-0" 
-        />
-      </div>
-      <div class="w-full border-t border-white/15 pt-5 flex justify-between items-start">
-        <span class="font-sans text-sm text-slate-500 font-medium">03</span>
-        <h3 class="font-sans text-xl text-white font-medium tracking-tight uppercase text-right">Mobiliario<br/>en Acero</h3>
-      </div>
-    </div>
-
-    <div class="slider-item w-[85vw] md:w-[40vw] lg:w-[30vw] flex-shrink-0 group pr-6 md:pr-12 lg:pr-20">
-      <div class="w-full aspect-[3/4] overflow-hidden mb-6 bg-[#111]">
-        <img 
-          src="https://images.unsplash.com/photo-1565642442442-9f935f111b23?q=80&w=1200&auto=format&fit=crop" 
-          alt="Residencial" 
-          class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105 grayscale-[30%] group-hover:grayscale-0" 
-        />
-      </div>
-      <div class="w-full border-t border-white/15 pt-5 flex justify-between items-start">
-        <span class="font-sans text-sm text-slate-500 font-medium">04</span>
-        <h3 class="font-sans text-xl text-white font-medium tracking-tight uppercase text-right">Cerramientos<br/>Residenciales</h3>
+    <!-- Pista 2: derecha → izquierda (más rápida, imágenes distintas) -->
+    <div class="carousel-track track-rev">
+      <div class="carousel-inner">
+        <!-- SET A -->
+        <div class="carousel-card card-tall" style="--hue:190">
+          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80&auto=format&fit=crop" alt="Cancela residencial" loading="lazy"/>
+          <div class="card-label">Cancela residencial · Aguadulce</div>
+        </div>
+        <div class="carousel-card card-tall" style="--hue:15">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&auto=format&fit=crop" alt="Entreplantas" loading="lazy"/>
+          <div class="card-label">Entreplanta industrial · Marchena</div>
+        </div>
+        <div class="carousel-card card-tall" style="--hue:100">
+          <img src="https://images.unsplash.com/photo-1561484930-998b6a7b22e8?w=600&q=80&auto=format&fit=crop" alt="Mobiliario acero" loading="lazy"/>
+          <div class="card-label">Mobiliario acero · Sevilla</div>
+        </div>
+        <div class="carousel-card card-tall" style="--hue:330">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&auto=format&fit=crop" alt="Estructura exterior" loading="lazy"/>
+          <div class="card-label">Pérgola metálica · La Roda</div>
+        </div>
+        <div class="carousel-card card-tall" style="--hue:55">
+          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80&auto=format&fit=crop" alt="Cerrajería industrial" loading="lazy"/>
+          <div class="card-label">Cerrajería industrial · Herrera</div>
+        </div>
+        <!-- SET B clon -->
+        <div class="carousel-card card-tall" style="--hue:190">
+          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80&auto=format&fit=crop" alt="Cancela residencial" loading="lazy"/>
+          <div class="card-label">Cancela residencial · Aguadulce</div>
+        </div>
+        <div class="carousel-card card-tall" style="--hue:15">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&auto=format&fit=crop" alt="Entreplantas" loading="lazy"/>
+          <div class="card-label">Entreplanta industrial · Marchena</div>
+        </div>
+        <div class="carousel-card card-tall" style="--hue:100">
+          <img src="https://images.unsplash.com/photo-1561484930-998b6a7b22e8?w=600&q=80&auto=format&fit=crop" alt="Mobiliario acero" loading="lazy"/>
+          <div class="card-label">Mobiliario acero · Sevilla</div>
+        </div>
+        <div class="carousel-card card-tall" style="--hue:330">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&auto=format&fit=crop" alt="Estructura exterior" loading="lazy"/>
+          <div class="card-label">Pérgola metálica · La Roda</div>
+        </div>
+        <div class="carousel-card card-tall" style="--hue:55">
+          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80&auto=format&fit=crop" alt="Cerrajería industrial" loading="lazy"/>
+          <div class="card-label">Cerrajería industrial · Herrera</div>
+        </div>
       </div>
     </div>
 
   </div>
+
+  <!-- Fade edges -->
+  <div class="projects-fade-left"></div>
+  <div class="projects-fade-right"></div>
+
 </section>
 
 <style>
-  /* Ocultar barra de scroll nativa para un look limpio */
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none;
+  /* ─── Tipografía ─── */
+  .projects-heading {
+    font-size: clamp(3rem, 6vw, 5.5rem);
   }
-  .hide-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+
+  /* ─── Carrusel outer ─── */
+  .projects-carousel-outer {
+    position: relative;
+    width: 100%;
+  }
+
+  /* ─── Pista ─── */
+  .carousel-track {
+    width: 100%;
+    overflow: hidden;
+    cursor: grab;
+  }
+  .carousel-track:active { cursor: grabbing; }
+
+  /* ─── Inner: fila de cards, se anima con CSS ─── */
+  .carousel-inner {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    padding: 0 8px;
+  }
+
+  /* Pista 1: avanza hacia la izquierda (normal) */
+  .track-fwd .carousel-inner {
+    animation: scrollFwd 40s linear infinite;
+  }
+  /* Pista 2: avanza al revés */
+  .track-rev .carousel-inner {
+    animation: scrollRev 32s linear infinite;
+  }
+
+  /* Pausa al hover */
+  .carousel-track:hover .carousel-inner {
+    animation-play-state: paused;
+  }
+
+  @keyframes scrollFwd {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* 50% porque duplicamos el set */
+  }
+  @keyframes scrollRev {
+    0%   { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  /* ─── Cards ─── */
+  .carousel-card {
+    position: relative;
+    flex-shrink: 0;
+    width: 340px;
+    height: 240px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1a1a1a;
+  }
+  .carousel-card.card-tall {
+    height: 210px;
+    width: 320px;
+  }
+
+  .carousel-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(20%) brightness(0.85);
+    transform: scale(1);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.6s ease;
+  }
+  .carousel-card:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0%) brightness(1);
+  }
+
+  /* Overlay gradiente en la card */
+  .carousel-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  /* Label dentro de la card */
+  .card-label {
+    position: absolute;
+    bottom: 14px;
+    left: 16px;
+    right: 16px;
+    z-index: 2;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    transition: color 0.3s ease;
+  }
+  .carousel-card:hover .card-label {
+    color: #fff;
+  }
+
+  /* ─── Fades laterales ─── */
+  .projects-fade-left,
+  .projects-fade-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    pointer-events: none;
+    z-index: 10;
+  }
+  .projects-fade-left {
+    left: 0;
+    background: linear-gradient(to right, #0a0a0a, transparent);
+  }
+  .projects-fade-right {
+    right: 0;
+    background: linear-gradient(to left, #0a0a0a, transparent);
+  }
+
+  /* Hace que el outer sea position:relative para los fades */
+  .projects-carousel-outer {
+    position: relative;
   }
 </style>
-
-<script>
-  (() => {
-    const slider = document.querySelector('.slider-container') as HTMLElement;
-    if (!slider) return;
-
-    let isDown = false;
-    let startX: number;
-    let scrollLeft: number;
-    let autoPlayInterval: number;
-
-    // --- LÓGICA DE DRAG (ARRASTRE) ---
-    slider.addEventListener('mousedown', (e) => {
-      isDown = true;
-      startX = e.pageX - slider.offsetLeft;
-      scrollLeft = slider.scrollLeft;
-      pauseAutoPlay();
-    });
-
-    slider.addEventListener('mouseleave', () => {
-      isDown = false;
-      startAutoPlay();
-    });
-
-    slider.addEventListener('mouseup', () => {
-      isDown = false;
-      startAutoPlay();
-    });
-
-    slider.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 2; 
-      slider.scrollLeft = scrollLeft - walk;
-    });
-
-    slider.addEventListener('touchstart', pauseAutoPlay, { passive: true });
-    slider.addEventListener('touchend', startAutoPlay);
-
-    // --- LÓGICA DE AUTOPLAY ---
-    const startAutoPlay = () => {
-      clearInterval(autoPlayInterval);
-      autoPlayInterval = window.setInterval(() => {
-        slider.scrollBy({ left: 1.5, behavior: 'auto' }); // Velocidad suave
-        
-        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 1) {
-          slider.scrollTo({ left: 0, behavior: 'smooth' });
-        }
-      }, 30);
-    };
-
-    const pauseAutoPlay = () => clearInterval(autoPlayInterval);
-
-    startAutoPlay();
-  })();
-</script>
